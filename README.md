@@ -10,7 +10,7 @@ This project is developed using React to create a simple todo application. The d
 
 ## Live Demo
 
-[React Todo App]()
+[Todo App](https://todo-app-coral-one-76.vercel.app/)
 
 ## Features
 

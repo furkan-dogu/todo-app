@@ -1,8 +1,21 @@
 body{
     background-image: url("./assets/sayfa.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+li span {
+    max-width: 90%;
+    overflow: auto;
+}
+
+.input::placeholder{
+    color: rgba(255, 255, 255, 0.8);
 }
 
 .todo-list {
     background-color: navajowhite;
-    max-width: 1200px;
+    max-width: 600px;
 }

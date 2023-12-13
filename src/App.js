@@ -8,6 +8,7 @@ import Container from 'react-bootstrap/Container'
 function App() {
   const [text, setText] = useState("");
   const [addTodo, setAddTodo] = useState(JSON.parse(localStorage.getItem("list")) || []);
+  const [completed, setCompleted] = useState(false)
 
   const handleChange = (e) => {
     setText(e.target.value);
@@ -21,11 +22,13 @@ function App() {
     const newTodo = {
       id: v4(),
       text: text,
+      completed: false,
     };
 
     setAddTodo([...addTodo, newTodo]);
     localStorage.setItem("list", JSON.stringify([...addTodo, newTodo]))
     setText("");
+    
   };
 
   const handleDelete = (id) => {
@@ -34,6 +37,13 @@ function App() {
     localStorage.setItem("list", JSON.stringify(filtered))
   };
 
+  const handleDuble = (id) => {
+    setCompleted(!completed)
+    const cizgi = addTodo.map((item) => (item.id === id ? {...item, completed: !item.completed} : item))
+    setAddTodo(cizgi)
+    localStorage.setItem("list", JSON.stringify(cizgi))
+  }
+
   return (
     <Container className="App">
       <Header
@@ -41,7 +51,7 @@ function App() {
         text={text}
         handleChange={handleChange}
       />
-      <TodoList addTodo={addTodo} handleDelete={handleDelete} />
+      <TodoList addTodo={addTodo} handleDelete={handleDelete} handleDuble={handleDuble} />
     </Container>
   );
 }

@@ -1,0 +1,8 @@
+body{
+    background-image: url("./assets/sayfa.jpg");
+}
+
+.todo-list {
+    background-color: navajowhite;
+    max-width: 1200px;
+}
